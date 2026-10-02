@@ -142,7 +142,7 @@ h1 span:nth-of-type(4){animation-delay:.21s;color:var(--red)}
 .btn-dark span{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em}
 .btn-dark:hover{background:#000}
 .book p{font-family:var(--mono);font-size:12px;letter-spacing:.06em;margin-top:14px;text-transform:uppercase}
-.ticket-wrap{padding:48px 40px;display:flex}
+.ticket-wrap{padding:48px 40px;display:flex;align-items:center}
 .ticket{flex:1;display:flex;flex-direction:column}
 .stub{background:var(--surface);padding:24px;display:flex;flex-direction:column;gap:14px}
 .label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
@@ -154,7 +154,7 @@ h1 span:nth-of-type(4){animation-delay:.21s;color:var(--red)}
 .perf::before,.perf::after{content:"";position:absolute;width:22px;height:22px;border-radius:50%;background:var(--bg);top:0}
 .perf::before{left:-11px}.perf::after{right:-11px}
 .perf i{flex:1;margin:0 18px;border-top:2px dashed var(--line2)}
-.hours{flex:1;background:var(--surface);padding:16px 24px 22px;list-style:none;font-family:var(--mono);font-size:13px}
+.hours{flex:1;background:var(--surface);padding:22px 24px 22px;list-style:none;font-family:var(--mono);font-size:13px}
 .hours li{display:flex;justify-content:space-between;align-items:center;padding:8px 0;color:var(--muted)}
 .hours li.closed{color:var(--dim)}
 .hours li.hours-head{padding:0 0 4px}
@@ -406,15 +406,6 @@ footer nav a{display:inline-flex;align-items:center;gap:6px}
 
   <div class="ticket-wrap">
     <div class="ticket reveal">
-      <div class="stub">
-        <span class="label">Find us</span>
-        <address class="addr">SuperValu Shopping Centre, Donegal Town</address>
-        <div class="chips">
-          <a class="chip tap" href="https://www.google.com/maps/search/?api=1&query=Reform+Barbershop+SuperValu+Shopping+Centre+Donegal+Town" target="_blank" rel="noopener">Directions <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-          <button type="button" class="chip tap js-copy" data-copy="Reform Barbershop, SuperValu Shopping Centre, 9 Newpark Road, Donegal Town, Co. Donegal">Copy</button>
-        </div>
-      </div>
-      <div class="perf" aria-hidden="true"><i></i></div>
       <ul class="hours" id="hours" aria-label="Opening hours">
         <li class="hours-head"><span class="label">Hours</span><span class="hstatus js-status" aria-live="polite"><span class="led"></span><span class="main">CHECKING</span></span></li>
         <li class="hours-sub js-status-sub"></li>
