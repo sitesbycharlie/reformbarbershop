@@ -28,7 +28,7 @@
 <link rel="preload" as="image" href="storefront.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Arimo:wght@400;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BarberShop","name":"Reform Barbershop","image":"https://sitesbycharlie.github.io/reformbarbershop/og-image_1.jpg","url":"https://sitesbycharlie.github.io/reformbarbershop/","logo":"https://sitesbycharlie.github.io/reformbarbershop/icon-512.png","telephone":"+353877801057","email":"Reformbarbershop@hotmail.com","priceRange":"€16 to €24","sameAs":["https://www.facebook.com/reformbarbershopdonegaltown/"],"address":{"@type":"PostalAddress","streetAddress":"SuperValu Shopping Centre, 9 Newpark Road","addressLocality":"Donegal Town","addressRegion":"Co. Donegal","addressCountry":"IE"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:30","closes":"18:30"}],"makesOffer":[{"@type":"Offer","name":"Gents Haircut","price":"18.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Student Haircut","price":"17.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Kids Haircut","price":"16.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Senior Haircut","price":"16.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Head Shave","price":"16.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Haircut & Beard","price":"24.00","priceCurrency":"EUR"}]}
 </script>
@@ -36,15 +36,15 @@
 :root{
   --bg:#121212; --deep:#0A0A0A; --surface:#1C1C1C; --line:#262626; --line2:#3A3A3A;
   --fg:#EDE6DA; --muted:#8D877F; --dim:#5E5953;
-  --red:#E1321E; --red-dark:#B82714; --led:#4FD17A;
-  --display:'Archivo','Arial Narrow',Impact,sans-serif;
-  --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+  --red:#C8202B; --red-dark:#A0161F; --led:#4FD17A;
+  --display:'Archivo Black','Arial Black',sans-serif;
+  --mono:'Arimo',Arial,Helvetica,sans-serif;
   --ease:cubic-bezier(.2,.7,.2,1);
   --cut:14px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-body{background:var(--bg);color:var(--fg);font-family:var(--display);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--fg);font-family:var(--mono);font-size:17px;line-height:1.5;font-synthesis:none;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 img{display:block;max-width:100%}
@@ -58,7 +58,7 @@ svg{flex-shrink:0}
 .tap:active{transform:scale(.97)}
 
 /* Cut-corner shape */
-.cut{clip-path:polygon(var(--cut) 0,100% 0,100% calc(100% - var(--cut)),calc(100% - var(--cut)) 100%,0 100%,0 var(--cut))}
+.cut{clip-path:none}
 
 /* LED */
 .led{width:8px;height:8px;background:var(--dim);flex-shrink:0}
@@ -68,8 +68,13 @@ svg{flex-shrink:0}
 
 /* Header */
 .top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:72px;padding:0 32px 0 80px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em}
-.logo{font-family:var(--display);font-weight:900;font-stretch:68%;font-size:30px;letter-spacing:.01em;line-height:1;text-transform:uppercase}
-.logo b{color:var(--red);font-weight:900}
+.plate{display:inline-flex;align-items:center;gap:12px;height:44px;padding:0 14px;background:#F4F4F2;color:#111;justify-self:start}
+.plate .wm{display:flex;flex-direction:column;justify-content:center;gap:3px}
+.plate .wm i{display:block;height:2px;background:#111}
+.plate .wm span{font-family:var(--display);font-size:22px;line-height:1;letter-spacing:-.01em}
+.plate .wm b{color:var(--red);font-weight:400}
+.plate .bs{font-family:var(--mono);font-weight:700;font-size:13px;line-height:1;letter-spacing:.02em}
+.plate.sm{height:38px;padding:0 11px;gap:9px}.plate.sm .wm span{font-size:18px}.plate.sm .bs{font-size:11px}
 .top .where{color:var(--muted)}
 .top .right{justify-self:end;display:flex;align-items:center;gap:24px}
 .status{display:flex;align-items:center;gap:10px;text-transform:uppercase}
@@ -80,8 +85,8 @@ svg{flex-shrink:0}
 /* Hero */
 .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);min-height:calc(100svh - 72px);max-height:960px}
 .hero-copy{display:flex;flex-direction:column;justify-content:space-between;gap:40px;padding:64px 64px 48px 80px}
-.kicker{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--muted)}
-h1{font-weight:900;font-stretch:62%;font-size:clamp(64px,8.2vw,124px);line-height:.86;letter-spacing:-.01em;text-transform:uppercase;margin:28px 0 36px}
+.kicker{font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:.12em;color:var(--muted)}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(56px,7vw,104px);line-height:.94;letter-spacing:-.02em;text-transform:uppercase;margin:28px 0 36px;padding:16px 0 14px;border-top:5px solid var(--fg);border-bottom:5px solid var(--fg)}
 h1 .mbr{display:none}
 h1 span{display:block;opacity:0;transform:translateY(22px);animation:rise .7s var(--ease) forwards}
 h1 span:nth-of-type(2){animation-delay:.07s}
@@ -96,13 +101,13 @@ h1 span:nth-of-type(4){animation-delay:.21s;color:var(--red)}
 @keyframes sheen{0%,72%{left:-90px}100%{left:120%}}
 .btn-call .txt{flex:1;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:0 24px}
 .btn-call small{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
-.btn-call strong{font-weight:900;font-stretch:75%;font-size:36px;line-height:1;letter-spacing:.02em;white-space:nowrap}
+.btn-call strong{font-family:var(--display);font-weight:400;font-size:30px;line-height:1;letter-spacing:-.01em;white-space:nowrap}
 .btn-call .arrow{width:80px;display:grid;place-items:center;background:rgba(0,0,0,.18)}
 .btn-call .arrow svg{transition:transform .25s var(--ease)}
 .btn-call:hover .arrow svg{transform:translate(3px,-3px)}
 .btn-menu{display:flex;flex-direction:column;justify-content:center;gap:6px;min-height:92px;padding:0 36px;background:var(--fg);color:var(--bg);text-align:left}
 .btn-menu small{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.14em}
-.btn-menu strong{font-weight:800;font-stretch:75%;font-size:30px;line-height:1;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+.btn-menu strong{font-family:var(--display);font-weight:400;font-size:22px;line-height:1;letter-spacing:.01em;text-transform:uppercase;white-space:nowrap}
 .btn-menu:hover{background:#fff}
 .note{font-family:var(--mono);font-size:13px;color:var(--muted);margin-top:18px;text-transform:uppercase}
 
@@ -117,7 +122,7 @@ h1 span:nth-of-type(4){animation-delay:.21s;color:var(--red)}
 .slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
 .slides::-webkit-scrollbar{display:none}
 .slide{flex:0 0 100%;scroll-snap-align:start;display:flex;flex-direction:column;gap:8px;padding-right:12px}
-.slide q{font-weight:800;font-stretch:72%;font-size:30px;line-height:1.02;text-transform:uppercase}
+.slide q{font-family:var(--display);font-weight:400;font-size:24px;line-height:1.1;letter-spacing:-.01em;text-transform:uppercase}
 .slide cite{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--muted)}
 
 /* Photo */
@@ -131,8 +136,8 @@ h1 span:nth-of-type(4){animation-delay:.21s;color:var(--red)}
 /* Visit */
 .visit{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
 .book{background:var(--red);color:#fff;padding:72px 48px 56px 80px;display:flex;flex-direction:column;justify-content:space-between;gap:40px}
-.book h2{font-weight:900;font-stretch:62%;font-size:clamp(76px,8.6vw,124px);line-height:.84;text-transform:uppercase}
-.btn-dark{display:flex;align-items:center;justify-content:space-between;min-height:72px;padding:0 24px;background:var(--bg);color:#fff;font-weight:900;font-stretch:75%;font-size:30px;letter-spacing:.02em}
+.book h2{font-family:var(--display);font-weight:400;font-size:clamp(52px,5.2vw,84px);line-height:.94;letter-spacing:-.02em;text-transform:uppercase}
+.btn-dark{display:flex;align-items:center;justify-content:space-between;min-height:72px;padding:0 24px;background:var(--bg);color:#fff;font-family:var(--display);font-weight:400;font-size:24px;letter-spacing:-.01em}
 .btn-dark span{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em}
 .btn-dark:hover{background:#000}
 .book p{font-family:var(--mono);font-size:12px;letter-spacing:.06em;margin-top:14px;text-transform:uppercase}
@@ -140,7 +145,7 @@ h1 span:nth-of-type(4){animation-delay:.21s;color:var(--red)}
 .ticket{flex:1;display:flex;flex-direction:column}
 .stub{background:var(--surface);padding:24px;display:flex;flex-direction:column;gap:14px}
 .label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
-.addr{font-weight:800;font-stretch:75%;font-size:28px;line-height:1.05;text-transform:uppercase;font-style:normal}
+.addr{font-family:var(--display);font-weight:400;font-size:22px;line-height:1.12;text-transform:uppercase;font-style:normal}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{height:44px;display:inline-flex;align-items:center;gap:8px;padding:0 14px;border:1px solid var(--line2);font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
 .chip:hover{border-color:var(--fg)}
@@ -183,18 +188,18 @@ footer a:hover{color:var(--fg)}
 .grab{display:none}
 .menu-head{display:flex;align-items:center;justify-content:space-between;padding:20px 24px 20px 32px;border-bottom:1px solid var(--line)}
 .menu-body{padding:32px}
-.menu-body h2{font-weight:900;font-stretch:62%;font-size:84px;line-height:.86;text-transform:uppercase}
+.menu-body h2{font-family:var(--display);font-weight:400;font-size:60px;line-height:.94;letter-spacing:-.02em;text-transform:uppercase}
 .menu-body h2 em{font-style:normal;color:var(--red)}
 .menu-list{list-style:none;margin-top:28px;border-bottom:1px solid var(--line)}
 .menu-list li{display:flex;align-items:baseline;gap:14px;padding:18px 0;border-top:1px solid var(--line)}
 .menu[open] .menu-list li{opacity:0;transform:translateY(10px);animation:rise .45s var(--ease) forwards}
 .menu[open] .menu-list li:nth-child(1){animation-delay:.08s}.menu[open] .menu-list li:nth-child(2){animation-delay:.13s}.menu[open] .menu-list li:nth-child(3){animation-delay:.18s}.menu[open] .menu-list li:nth-child(4){animation-delay:.23s}.menu[open] .menu-list li:nth-child(5){animation-delay:.28s}.menu[open] .menu-list li:nth-child(6){animation-delay:.33s}
 .menu-list .n{font-family:var(--mono);font-size:12px;color:var(--red);font-weight:700;width:22px}
-.menu-list h3{font-weight:800;font-stretch:75%;font-size:30px;line-height:1.05;text-transform:uppercase}
+.menu-list h3{font-family:var(--display);font-weight:400;font-size:22px;line-height:1.1;text-transform:uppercase}
 .menu-list .lead{flex:1;border-bottom:2px dotted var(--line2);transform:translateY(-6px)}
 .menu-list .p{font-family:var(--mono);font-size:20px;font-weight:700}
 .menu-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:24px 32px;background:var(--red);color:#fff}
-.menu-foot > span{font-weight:900;font-stretch:62%;font-size:40px;line-height:.9;text-transform:uppercase}
+.menu-foot > span{font-family:var(--display);font-weight:400;font-size:30px;line-height:1;letter-spacing:-.01em;text-transform:uppercase}
 
 /* Dock and toast */
 .dock{display:none}
@@ -218,7 +223,7 @@ footer a:hover{color:var(--fg)}
   body{padding-bottom:calc(68px + env(safe-area-inset-bottom,0px))}
   .top{height:64px;padding:0 12px 0 20px}
   .top .status{display:none}
-  .logo{font-size:26px}
+  .plate{height:40px;padding:0 11px;gap:9px}.plate .wm span{font-size:19px}.plate .bs{font-size:11px}
   .hero{grid-template-columns:1fr;min-height:0;max-height:none}
   .photo{order:-1;position:relative;height:clamp(150px,25svh,240px)}
   .photo .tag{font-size:10px}
@@ -227,28 +232,28 @@ footer a:hover{color:var(--fg)}
   .mstatus .sub{color:var(--muted);text-align:right}
   .hero-copy{padding:18px 20px 32px;gap:28px}
   .kicker{font-size:12px}
-  h1{font-size:clamp(48px,15vw,62px);margin:12px 0 18px}
+  h1{font-size:clamp(34px,11.4vw,48px);margin:12px 0 18px;line-height:.98;padding:10px 0 9px;border-width:4px}
   h1 span{display:inline-block}
   h1 .mbr{display:inline}
   .ctas{flex-direction:column;gap:10px}
   .btn-call{width:100%;max-width:none;flex:none;min-height:74px}
-  .btn-call strong{font-size:32px}
+  .btn-call strong{font-size:26px}
   .btn-call small{font-size:11px}
   .btn-call .arrow{width:72px}
   .btn-menu{min-height:52px;flex-direction:row;align-items:center;justify-content:space-between;padding:0 20px;--cut:10px}
-  .btn-menu strong{font-size:20px}
+  .btn-menu strong{font-size:18px}
   .note{font-size:11px;margin-top:12px}
   .reviews{grid-template-columns:1fr;gap:12px;padding-top:20px}
   .reviews .meta{flex-direction:row;justify-content:space-between;align-items:center}
   .rv-nav{display:none}
-  .slide q{font-size:28px}
+  .slide q{font-size:21px}
   .visit{grid-template-columns:1fr}
   .ticket-wrap{padding:0 20px;order:-1;margin-top:8px}
   .map{min-height:240px;margin:16px 20px 0;border:1px solid var(--line)}
   .book{order:1;padding:40px 20px;margin-top:32px;gap:22px}
-  .book h2{font-size:68px;line-height:.88}
-  .btn-dark{min-height:64px;font-size:26px;--cut:12px}
-  .addr{font-size:26px}
+  .book h2{font-size:clamp(40px,13vw,54px);line-height:.96}
+  .btn-dark{min-height:64px;font-size:21px;--cut:12px}
+  .addr{font-size:20px}
   footer{flex-direction:column;padding:28px 20px;font-size:11px}
 
   .menu{margin:auto 0 0;width:100%;max-height:92svh;border:0;border-top:1px solid var(--line2);overflow:auto}
@@ -260,19 +265,19 @@ footer a:hover{color:var(--fg)}
   .grab::before{content:"";display:block;width:44px;height:4px;margin:0 auto;background:var(--line2)}
   .menu-head{position:sticky;top:20px;z-index:2;background:var(--bg);padding:6px 12px 14px 20px;touch-action:none}
   .menu-body{padding:24px 20px}
-  .menu-body h2{font-size:64px}
-  .menu-list h3{font-size:24px}
+  .menu-body h2{font-size:44px}
+  .menu-list h3{font-size:17px}
   .menu-list .p{font-size:17px}
   .menu-list li{gap:10px;padding:16px 0}
   .menu-foot{position:sticky;bottom:0;flex-direction:column;align-items:stretch;padding:18px 20px calc(18px + env(safe-area-inset-bottom,0px))}
-  .menu-foot > span{font-size:30px}
+  .menu-foot > span{font-size:24px}
 
   .dock{display:grid;grid-template-columns:64px 1fr 64px;position:fixed;left:0;right:0;bottom:0;z-index:30;padding-bottom:env(safe-area-inset-bottom,0px);background:var(--deep);border-top:1px solid #2A2A2A;transform:translateY(105%);transition:transform .4s var(--ease)}
   .dock.show{transform:none}
   .dock a,.dock button{height:64px;display:grid;place-items:center}
   .dock .side{border-right:1px solid #2A2A2A}
   .dock .side:last-child{border-right:0;border-left:1px solid #2A2A2A}
-  .dock .call{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--red);color:#fff;font-weight:900;font-stretch:75%;font-size:22px;letter-spacing:.04em;text-transform:uppercase}
+  .dock .call{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--red);color:#fff;font-family:var(--display);font-weight:400;font-size:18px;letter-spacing:.01em;text-transform:uppercase}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -285,7 +290,7 @@ footer a:hover{color:var(--fg)}
 <body>
 
 <header class="top">
-  <a href="#" class="logo" aria-label="Reform Barbershop home"><b>RE</b>FORM BARBERSHOP</a>
+  <a href="#" class="plate tap" aria-label="Reform Barbershop home"><span class="wm"><i></i><span><b>RE</b>FORM</span><i></i></span><span class="bs">BARBER SHOP</span></a>
   <span class="where">SUPERVALU SHOPPING CENTRE · DONEGAL TOWN</span>
   <div class="right">
     <span class="status js-status" aria-live="polite"><span class="led"></span><span class="main">CHECKING</span><span class="sub"></span></span>
@@ -298,7 +303,7 @@ footer a:hover{color:var(--fg)}
 <section class="hero">
   <div class="hero-copy">
     <div>
-      <p class="kicker">// BARBERS · DONEGAL TOWN, IE</p>
+      <p class="kicker">BARBERS · DONEGAL TOWN</p>
       <h1><span>Sharp</span> <span>cuts.</span><br class="mbr"><span>Good</span> <span>chat.</span></h1>
       <div class="ctas">
         <a href="tel:+353877801057" class="btn-call cut tap js-call" id="hero-call">
@@ -395,12 +400,12 @@ footer a:hover{color:var(--fg)}
 <dialog class="menu" id="menu" aria-labelledby="menu-title">
   <div class="grab" id="grab" aria-hidden="true"></div>
   <div class="menu-head" id="menu-head">
-    <span class="logo" style="font-size:24px"><b>RE</b>FORM</span>
+    <span class="plate sm" aria-hidden="true"><span class="wm"><i></i><span><b>RE</b>FORM</span><i></i></span><span class="bs">BARBER SHOP</span></span>
     <button type="button" class="btn-line tap" id="close-menu">Close
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </div>
   <div class="menu-body">
-    <p class="label">// Services &amp; prices</p>
+    <p class="label">Services &amp; prices</p>
     <h2 id="menu-title">The <em>menu</em></h2>
     <ul class="menu-list">
       <li><span class="n">01</span><h3>Gents Haircut</h3><span class="lead"></span><span class="p">€18</span></li>
