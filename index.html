@@ -139,7 +139,7 @@ h1 span:nth-of-type(4){animation-delay:.21s;color:var(--red)}
 .book{background:var(--red);color:#fff;padding:72px 48px 56px 80px;display:flex;flex-direction:column;justify-content:space-between;gap:40px}
 .book h2{font-family:var(--display);font-weight:400;font-size:clamp(52px,5.2vw,84px);line-height:.94;letter-spacing:-.02em;text-transform:uppercase}
 .btn-dark{display:flex;align-items:center;justify-content:space-between;min-height:72px;padding:0 24px;background:var(--bg);color:#fff;font-family:var(--display);font-weight:400;font-size:24px;letter-spacing:-.01em}
-.btn-dark span{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em}
+.btn-dark span{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em}
 .btn-dark:hover{background:#000}
 .book p{font-family:var(--mono);font-size:12px;letter-spacing:.06em;margin-top:14px;text-transform:uppercase}
 .ticket-wrap{padding:48px 40px;display:flex}
@@ -188,6 +188,7 @@ h1 span:nth-of-type(4){animation-delay:.21s;color:var(--red)}
 footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px 32px;padding:32px 80px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
 footer nav{display:flex;gap:24px}
 footer a:hover{color:var(--fg)}
+footer nav a{display:inline-flex;align-items:center;gap:6px}
 
 /* Reveal */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
@@ -241,7 +242,7 @@ footer a:hover{color:var(--fg)}
 .menu-body{padding:32px}
 .menu-body h2{font-family:var(--display);font-weight:400;font-size:60px;line-height:.94;letter-spacing:-.02em;text-transform:uppercase}
 .menu-body h2 em{font-style:normal;color:var(--red)}
-.menu-list{list-style:none;margin-top:28px;border-bottom:1px solid var(--line)}
+.menu-list{list-style:none;margin-top:0;border-bottom:1px solid var(--line)}
 .menu-list li{display:flex;align-items:baseline;gap:14px;padding:18px 0;border-top:1px solid var(--line)}
 .menu[open] .menu-list li{opacity:0;transform:translateY(10px);animation:rise .45s var(--ease) forwards}
 .menu[open] .menu-list li:nth-child(1){animation-delay:.08s}.menu[open] .menu-list li:nth-child(2){animation-delay:.13s}.menu[open] .menu-list li:nth-child(3){animation-delay:.18s}.menu[open] .menu-list li:nth-child(4){animation-delay:.23s}.menu[open] .menu-list li:nth-child(5){animation-delay:.28s}.menu[open] .menu-list li:nth-child(6){animation-delay:.33s}
@@ -317,13 +318,14 @@ footer a:hover{color:var(--fg)}
   .grab{display:block;position:sticky;top:0;z-index:2;padding:10px 0 6px;background:var(--bg);touch-action:none}
   .grab::before{content:"";display:block;width:44px;height:4px;margin:0 auto;background:var(--line2)}
   .menu-head{position:sticky;top:20px;z-index:2;background:var(--bg);padding:6px 12px 14px 20px;touch-action:none}
-  .menu-body{padding:24px 20px}
+  .menu-body{padding:8px 20px 16px}
   .menu-body h2{font-size:44px}
   .menu-list h3{font-size:17px}
   .menu-list .p{font-size:17px}
-  .menu-list li{gap:10px;padding:16px 0}
-  .menu-foot{position:sticky;bottom:0;flex-direction:column;align-items:stretch;padding:18px 20px calc(18px + env(safe-area-inset-bottom,0px))}
-  .menu-foot > span{font-size:24px}
+  .menu-list li{gap:10px;padding:14px 0}
+  .menu-foot{position:sticky;bottom:0;flex-direction:column;align-items:stretch;gap:10px;padding:14px 20px calc(14px + env(safe-area-inset-bottom,0px))}
+  .menu-foot > span{font-size:19px}
+  .menu-foot .btn-dark{min-height:56px}
 
   .dock{display:grid;grid-template-columns:64px 1fr 64px;position:fixed;left:0;right:0;bottom:0;z-index:30;padding-bottom:env(safe-area-inset-bottom,0px);background:var(--deep);border-top:1px solid #2A2A2A;transform:translateY(105%);transition:transform .4s var(--ease)}
   .dock.show{transform:none}
@@ -361,7 +363,7 @@ footer a:hover{color:var(--fg)}
       <div class="ctas">
         <a href="tel:+353877801057" class="btn-call cut tap js-call" id="hero-call">
           <span class="txt"><small>Tap to call + book</small><strong>087 780 1057</strong></span>
-          <span class="arrow"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+          <span class="arrow"><svg class="ph" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
         </a>
         <button type="button" class="btn-menu cut tap js-open-menu"><strong>Menu →</strong></button>
       </div>
@@ -397,7 +399,7 @@ footer a:hover{color:var(--fg)}
   <div class="book">
     <h2 class="reveal">Book<br>your<br>chair.</h2>
     <div class="reveal d1">
-      <a href="tel:+353877801057" class="btn-dark cut tap js-call">087 780 1057<span>CALL ↗</span></a>
+      <a href="tel:+353877801057" class="btn-dark cut tap js-call">087 780 1057<span>CALL <svg class="ph" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span></a>
       <p>Give us a ring and we'll get you sorted.</p>
     </div>
   </div>
@@ -408,7 +410,7 @@ footer a:hover{color:var(--fg)}
         <span class="label">Find us</span>
         <address class="addr">SuperValu Shopping Centre, Donegal Town</address>
         <div class="chips">
-          <a class="chip tap" href="https://www.google.com/maps/search/?api=1&query=Reform+Barbershop+SuperValu+Shopping+Centre+Donegal+Town" target="_blank" rel="noopener">Directions ↗</a>
+          <a class="chip tap" href="https://www.google.com/maps/search/?api=1&query=Reform+Barbershop+SuperValu+Shopping+Centre+Donegal+Town" target="_blank" rel="noopener">Directions <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
           <button type="button" class="chip tap js-copy" data-copy="Reform Barbershop, SuperValu Shopping Centre, 9 Newpark Road, Donegal Town, Co. Donegal">Copy</button>
         </div>
       </div>
@@ -433,7 +435,6 @@ footer a:hover{color:var(--fg)}
     <a class="hit" href="https://www.google.com/maps/search/?api=1&query=Reform+Barbershop+SuperValu+Shopping+Centre+Donegal+Town" target="_blank" rel="noopener" aria-label="Open Reform Barbershop in Google Maps"></a>
     <div class="pin" aria-hidden="true"><span class="tag"><b><span>RE</span>FORM</b></span><svg class="mk" width="34" height="46" viewBox="0 0 34 46"><path d="M17 45C17 45 2 27.5 2 17A15 15 0 0 1 32 17C32 27.5 17 45 17 45Z" fill="#C8202B" stroke="#121212" stroke-width="2"/><circle cx="17" cy="17" r="6" fill="#F4F4F2"/></svg><span class="dot"></span></div>
     <span class="hint"><span>●</span> Tap map for directions</span>
-    <a class="chip open-maps tap" href="https://www.google.com/maps/search/?api=1&query=Reform+Barbershop+SuperValu+Shopping+Centre+Donegal+Town" target="_blank" rel="noopener">Open in Maps ↗</a>
   </div>
 </section>
 
@@ -456,14 +457,14 @@ footer a:hover{color:var(--fg)}
 <footer>
   <a href="mailto:Reformbarbershop@hotmail.com">Reformbarbershop@hotmail.com</a>
   <nav>
-    <a href="https://www.facebook.com/reformbarbershopdonegaltown/" target="_blank" rel="noopener">Facebook ↗</a>
+    <a href="https://www.facebook.com/reformbarbershopdonegaltown/" target="_blank" rel="noopener">Facebook <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
   </nav>
   <span>© <span id="yr">2026</span> Reform Barbershop · Site by <a href="https://sitesbycharlie.ie" target="_blank" rel="noopener">SitesByCharlie</a></span>
 </footer>
 
 <nav class="dock" id="dock" aria-label="Quick actions">
   <a class="side tap" href="https://www.google.com/maps/search/?api=1&query=Reform+Barbershop+SuperValu+Shopping+Centre+Donegal+Town" target="_blank" rel="noopener" aria-label="Directions"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></a>
-  <a class="call tap js-call" href="tel:+353877801057">Call to book</a>
+  <a class="call tap js-call" href="tel:+353877801057"><svg class="ph" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call to book</a>
   <button type="button" class="side tap js-open-menu" aria-label="View menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></button>
 </nav>
 
@@ -477,8 +478,7 @@ footer a:hover{color:var(--fg)}
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </div>
   <div class="menu-body">
-    <p class="label">Services &amp; prices</p>
-    <h2 id="menu-title">The <em>menu</em></h2>
+    <h2 id="menu-title" class="sr">Menu and prices</h2>
     <ul class="menu-list">
       <li><span class="n">01</span><h3>Gents Haircut</h3><span class="lead"></span><span class="p">€18</span></li>
       <li><span class="n">02</span><h3>Student Haircut</h3><span class="lead"></span><span class="p">€17</span></li>
@@ -491,7 +491,7 @@ footer a:hover{color:var(--fg)}
   </div>
   <div class="menu-foot">
     <span>Ready for a fresh cut?</span>
-    <a href="tel:+353877801057" class="btn-dark cut tap js-call">087 780 1057<span>CALL ↗</span></a>
+    <a href="tel:+353877801057" class="btn-dark cut tap js-call">087 780 1057<span>CALL <svg class="ph" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span></a>
   </div>
 </dialog>
 
