@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://sitesbycharlie.github.io/reformbarbershop/sitemap.xml
