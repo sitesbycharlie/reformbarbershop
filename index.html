@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BarberShop","name":"Reform Barbershop","image":"storefront.jpg","telephone":"+353877801057","email":"Reformbarbershop@hotmail.com","priceRange":"€16 to €24","address":{"@type":"PostalAddress","streetAddress":"SuperValu Shopping Centre, 9 Newpark Road","addressLocality":"Donegal Town","addressRegion":"Co. Donegal","addressCountry":"IE"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:30","closes":"18:30"}],"makesOffer":[{"@type":"Offer","name":"Gents Haircut","price":"18.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Student Haircut","price":"17.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Kids Haircut","price":"16.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Senior Haircut","price":"16.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Head Shave","price":"16.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Haircut & Beard","price":"24.00","priceCurrency":"EUR"}]}
+{"@context":"https://schema.org","@type":"BarberShop","name":"Reform Barbershop","image":"storefront.jpg","telephone":"+353877801057","email":"Reformbarbershop@hotmail.com","priceRange":"€16 to €24","sameAs":["https://www.facebook.com/reformbarbershopdonegaltown/"],"address":{"@type":"PostalAddress","streetAddress":"SuperValu Shopping Centre, 9 Newpark Road","addressLocality":"Donegal Town","addressRegion":"Co. Donegal","addressCountry":"IE"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:30","closes":"18:30"}],"makesOffer":[{"@type":"Offer","name":"Gents Haircut","price":"18.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Student Haircut","price":"17.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Kids Haircut","price":"16.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Senior Haircut","price":"16.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Head Shave","price":"16.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Haircut & Beard","price":"24.00","priceCurrency":"EUR"}]}
 </script>
 <style>
 :root{
@@ -278,7 +278,7 @@ footer a:hover{color:var(--fg)}
   <div class="hero-copy">
     <div>
       <p class="kicker">// BARBERS · DONEGAL TOWN, IE</p>
-      <h1><span>Modern</span><span>cuts.</span><span>Traditional</span><span>craft.</span></h1>
+      <h1><span>Sharp</span><span>cuts.</span><span>Good</span><span>chat.</span></h1>
       <div class="ctas">
         <a href="tel:+353877801057" class="btn-call cut tap js-call" id="hero-call">
           <span class="txt"><small>Tap to call + book</small><strong>087 780 1057</strong></span>
@@ -292,7 +292,6 @@ footer a:hover{color:var(--fg)}
     <div class="reviews" aria-roledescription="carousel" aria-label="Customer reviews">
       <div class="meta">
         <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
-        <span class="count" id="rv-count">01 / 03</span>
         <div class="rv-nav">
           <button type="button" class="tap" id="rv-prev" aria-label="Previous review"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
           <button type="button" class="tap" id="rv-next" aria-label="Next review"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
@@ -359,8 +358,7 @@ footer a:hover{color:var(--fg)}
 <footer>
   <a href="mailto:Reformbarbershop@hotmail.com">Reformbarbershop@hotmail.com</a>
   <nav>
-    <a href="#" target="_blank" rel="noopener">Facebook</a><!-- TODO: add Facebook link -->
-    <a href="#" target="_blank" rel="noopener">Instagram</a><!-- TODO: add Instagram link -->
+    <a href="https://www.facebook.com/reformbarbershopdonegaltown/" target="_blank" rel="noopener">Facebook ↗</a>
   </nav>
   <span>© <span id="yr">2026</span> Reform Barbershop · Site by <a href="https://sitesbycharlie.ie" target="_blank" rel="noopener">SitesByCharlie</a></span>
 </footer>
@@ -441,12 +439,9 @@ footer a:hover{color:var(--fg)}
 
   /* Reviews */
   var slides = document.getElementById('slides'), total = slides.children.length, idx = 0, auto;
-  var counter = document.getElementById('rv-count');
-  function pad(n){ return (n < 10 ? '0' : '') + n; }
   function go(i){ idx = (i + total) % total; slides.scrollTo({left: slides.clientWidth*idx, behavior: reduce ? 'auto' : 'smooth'}); }
   slides.addEventListener('scroll', function(){
     idx = Math.round(slides.scrollLeft / slides.clientWidth);
-    counter.textContent = pad(idx+1) + ' / ' + pad(total);
   }, {passive:true});
   function stop(){ clearInterval(auto); }
   document.getElementById('rv-prev').addEventListener('click', function(){ stop(); go(idx-1); });
