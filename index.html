@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Reform Barbershop | Barbers in Donegal Town</title>
+<meta name="description" content="Reform Barbershop, a modern local barber in Donegal Town with a traditional twist. SuperValu Shopping Centre. Haircuts from €16. Call 087 780 1057 to book.">
+<meta name="theme-color" content="#121212">
+<meta property="og:title" content="Reform Barbershop, Donegal Town">
+<meta property="og:description" content="Modern cuts. Traditional craft. Call 087 780 1057 to book.">
+<meta property="og:image" content="images/storefront.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BarberShop","name":"Reform Barbershop","image":"images/storefront.jpg","telephone":"+353877801057","email":"Reformbarbershop@hotmail.com","priceRange":"€16 to €24","address":{"@type":"PostalAddress","streetAddress":"SuperValu Shopping Centre, 9 Newpark Road","addressLocality":"Donegal Town","addressRegion":"Co. Donegal","addressCountry":"IE"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:30","closes":"18:30"}],"makesOffer":[{"@type":"Offer","name":"Gents Haircut","price":"18.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Student Haircut","price":"17.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Kids Haircut","price":"16.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Senior Haircut","price":"16.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Head Shave","price":"16.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Haircut & Beard","price":"24.00","priceCurrency":"EUR"}]}
+</script>
+<style>
+:root{
+  --bg:#121212; --deep:#0A0A0A; --surface:#1C1C1C; --line:#262626; --line2:#3A3A3A;
+  --fg:#EDE6DA; --muted:#8D877F; --dim:#5E5953;
+  --red:#E1321E; --red-dark:#B82714; --led:#4FD17A;
+  --display:'Archivo','Arial Narrow',Impact,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --cut:14px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--display);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img{display:block;max-width:100%}
+svg{flex-shrink:0}
+:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+.mono{font-family:var(--mono)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Tap feedback */
+.tap{transition:transform .16s var(--ease),background .15s ease,color .15s ease,border-color .15s ease;touch-action:manipulation}
+.tap:active{transform:scale(.97)}
+
+/* Cut-corner shape */
+.cut{clip-path:polygon(var(--cut) 0,100% 0,100% calc(100% - var(--cut)),calc(100% - var(--cut)) 100%,0 100%,0 var(--cut))}
+
+/* LED */
+.led{width:8px;height:8px;background:var(--dim);flex-shrink:0}
+.is-open .led{background:var(--led);box-shadow:0 0 10px var(--led);animation:blink 1.6s ease-in-out infinite}
+.is-soon .led{background:#F2B33D;box-shadow:0 0 10px #F2B33D}
+@keyframes blink{50%{opacity:.35}}
+
+/* Header */
+.top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:72px;padding:0 32px 0 80px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em}
+.logo{font-family:var(--display);font-weight:900;font-stretch:68%;font-size:30px;letter-spacing:.01em;line-height:1;text-transform:uppercase}
+.logo b{color:var(--red);font-weight:900}
+.top .where{color:var(--muted)}
+.top .right{justify-self:end;display:flex;align-items:center;gap:24px}
+.status{display:flex;align-items:center;gap:10px;text-transform:uppercase}
+.status .sub{color:var(--muted)}
+.btn-line{height:44px;display:inline-flex;align-items:center;gap:10px;padding:0 16px;border:1px solid var(--line2);font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.btn-line:hover{border-color:var(--fg)}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);min-height:calc(100svh - 72px);max-height:960px}
+.hero-copy{display:flex;flex-direction:column;justify-content:space-between;gap:40px;padding:64px 64px 48px 80px}
+.kicker{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--muted)}
+h1{font-weight:900;font-stretch:62%;font-size:clamp(64px,8.2vw,124px);line-height:.86;letter-spacing:-.01em;text-transform:uppercase;margin:28px 0 36px}
+h1 span{display:block;opacity:0;transform:translateY(22px);animation:rise .7s var(--ease) forwards}
+h1 span:nth-child(2){animation-delay:.07s}
+h1 span:nth-child(3){animation-delay:.14s}
+h1 span:nth-child(4){animation-delay:.21s;color:var(--red)}
+@keyframes rise{to{opacity:1;transform:none}}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;opacity:0;animation:rise .7s var(--ease) .32s forwards;transform:translateY(14px)}
+.btn-call{position:relative;isolation:isolate;overflow:hidden;display:flex;min-height:92px;flex:1 1 330px;max-width:420px;background:var(--red);color:#fff}
+.btn-call::before{content:"";position:absolute;inset:0;background:var(--red-dark);transform:translateX(-101%);transition:transform .35s cubic-bezier(.6,0,.2,1);z-index:-1}
+.btn-call:hover::before{transform:none}
+.btn-call::after{content:"";position:absolute;top:0;bottom:0;width:60px;left:-90px;background:linear-gradient(100deg,transparent,rgba(255,255,255,.25),transparent);transform:skewX(-18deg);animation:sheen 5s ease-in-out 1.8s infinite;z-index:-1}
+@keyframes sheen{0%,72%{left:-90px}100%{left:120%}}
+.btn-call .txt{flex:1;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:0 24px}
+.btn-call small{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.btn-call strong{font-weight:900;font-stretch:75%;font-size:36px;line-height:1;letter-spacing:.02em;white-space:nowrap}
+.btn-call .arrow{width:80px;display:grid;place-items:center;background:rgba(0,0,0,.18)}
+.btn-call .arrow svg{transition:transform .25s var(--ease)}
+.btn-call:hover .arrow svg{transform:translate(3px,-3px)}
+.btn-menu{display:flex;flex-direction:column;justify-content:center;gap:6px;min-height:92px;padding:0 36px;background:var(--fg);color:var(--bg);text-align:left}
+.btn-menu small{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.14em}
+.btn-menu strong{font-weight:800;font-stretch:75%;font-size:30px;line-height:1;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+.btn-menu:hover{background:#fff}
+.note{font-family:var(--mono);font-size:13px;color:var(--muted);margin-top:18px;text-transform:uppercase}
+
+/* Reviews */
+.reviews{border-top:1px dashed var(--line2);padding-top:22px;display:grid;grid-template-columns:110px minmax(0,1fr);gap:24px}
+.reviews .meta{display:flex;flex-direction:column;gap:6px;font-family:var(--mono);font-size:12px;font-weight:600}
+.stars{color:var(--red);letter-spacing:2px}
+.count{color:var(--muted)}
+.rv-nav{display:flex;gap:6px;margin-top:6px}
+.rv-nav button{width:36px;height:36px;border:1px solid var(--line2);display:grid;place-items:center}
+.rv-nav button:hover{border-color:var(--fg)}
+.slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.slides::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;scroll-snap-align:start;display:flex;flex-direction:column;gap:8px;padding-right:12px}
+.slide q{font-weight:800;font-stretch:72%;font-size:30px;line-height:1.02;text-transform:uppercase}
+.slide cite{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--muted)}
+
+/* Photo */
+.photo{position:relative;overflow:hidden;background:#1B1B1B}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;transform:scale(1.04);animation:settle 1.4s var(--ease) forwards}
+@keyframes settle{to{transform:none}}
+.photo .tag{position:absolute;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--fg);background:rgba(10,10,10,.72);padding:6px 9px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.photo .t1{left:20px;top:20px}.photo .t2{right:20px;bottom:20px}
+.mstatus{display:none}
+
+/* Visit */
+.visit{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
+.book{background:var(--red);color:#fff;padding:72px 48px 56px 80px;display:flex;flex-direction:column;justify-content:space-between;gap:40px}
+.book h2{font-weight:900;font-stretch:62%;font-size:clamp(76px,8.6vw,124px);line-height:.84;text-transform:uppercase}
+.btn-dark{display:flex;align-items:center;justify-content:space-between;min-height:72px;padding:0 24px;background:var(--bg);color:#fff;font-weight:900;font-stretch:75%;font-size:30px;letter-spacing:.02em}
+.btn-dark span{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em}
+.btn-dark:hover{background:#000}
+.book p{font-family:var(--mono);font-size:12px;letter-spacing:.06em;margin-top:14px;text-transform:uppercase}
+.ticket-wrap{padding:48px 40px;display:flex}
+.ticket{flex:1;display:flex;flex-direction:column}
+.stub{background:var(--surface);padding:24px;display:flex;flex-direction:column;gap:14px}
+.label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.addr{font-weight:800;font-stretch:75%;font-size:28px;line-height:1.05;text-transform:uppercase;font-style:normal}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{height:44px;display:inline-flex;align-items:center;gap:8px;padding:0 14px;border:1px solid var(--line2);font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.chip:hover{border-color:var(--fg)}
+.perf{position:relative;height:22px;background:var(--surface);display:flex;align-items:center}
+.perf::before,.perf::after{content:"";position:absolute;width:22px;height:22px;border-radius:50%;background:var(--bg);top:0}
+.perf::before{left:-11px}.perf::after{right:-11px}
+.perf i{flex:1;margin:0 18px;border-top:2px dashed var(--line2)}
+.hours{flex:1;background:var(--surface);padding:16px 24px 22px;list-style:none;font-family:var(--mono);font-size:13px}
+.hours li{display:flex;justify-content:space-between;align-items:center;padding:8px 0;color:var(--muted)}
+.hours li.closed{color:var(--dim)}
+.hours li.hours-head{padding:0 0 4px}
+.hours li.hours-sub{padding:0 0 10px;font-size:11px;letter-spacing:.06em;color:var(--muted)}
+.hstatus{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--line2);background:var(--bg);font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--dim)}
+.hstatus.is-open{color:var(--led);border-color:rgba(79,209,122,.45)}
+.hstatus.is-soon{color:#F2B33D;border-color:rgba(242,179,61,.45)}
+.hstatus:not(.is-open):not(.is-soon){color:var(--fg)}
+.hstatus:not(.is-open):not(.is-soon) .led{background:var(--red)}
+.hours li.today{margin:0 -10px;padding:8px 10px;background:var(--bg);border-left:3px solid var(--red);color:var(--fg);font-weight:700}
+.hours li.today .d::after{content:"TODAY";margin-left:8px;padding:2px 6px;background:var(--red);color:#fff;font-size:10px}
+.map{position:relative;min-height:420px;border-left:1px solid var(--line);background:#181818;overflow:hidden}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) invert(.92) contrast(.88) brightness(.95)}
+.map .open-maps{position:absolute;right:20px;top:20px;background:var(--bg)}
+
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px 32px;padding:32px 80px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+footer nav{display:flex;gap:24px}
+footer a:hover{color:var(--fg)}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}
+
+/* Menu sheet */
+.menu{border:0;padding:0;margin:auto;width:min(760px,100%);max-width:100%;max-height:min(880px,100%);background:var(--bg);color:var(--fg);overscroll-behavior:contain;border:1px solid var(--line2)}
+.menu::backdrop{background:rgba(0,0,0,.7);backdrop-filter:blur(3px)}
+.menu[open]{animation:pop .4s var(--ease)}
+.menu.closing{animation:popout .25s ease forwards}
+@keyframes pop{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes popout{to{opacity:0;transform:translateY(24px)}}
+.grab{display:none}
+.menu-head{display:flex;align-items:center;justify-content:space-between;padding:20px 24px 20px 32px;border-bottom:1px solid var(--line)}
+.menu-body{padding:32px}
+.menu-body h2{font-weight:900;font-stretch:62%;font-size:84px;line-height:.86;text-transform:uppercase}
+.menu-body h2 em{font-style:normal;color:var(--red)}
+.menu-list{list-style:none;margin-top:28px;border-bottom:1px solid var(--line)}
+.menu-list li{display:flex;align-items:baseline;gap:14px;padding:18px 0;border-top:1px solid var(--line)}
+.menu[open] .menu-list li{opacity:0;transform:translateY(10px);animation:rise .45s var(--ease) forwards}
+.menu[open] .menu-list li:nth-child(1){animation-delay:.08s}.menu[open] .menu-list li:nth-child(2){animation-delay:.13s}.menu[open] .menu-list li:nth-child(3){animation-delay:.18s}.menu[open] .menu-list li:nth-child(4){animation-delay:.23s}.menu[open] .menu-list li:nth-child(5){animation-delay:.28s}.menu[open] .menu-list li:nth-child(6){animation-delay:.33s}
+.menu-list .n{font-family:var(--mono);font-size:12px;color:var(--red);font-weight:700;width:22px}
+.menu-list h3{font-weight:800;font-stretch:75%;font-size:30px;line-height:1.05;text-transform:uppercase}
+.menu-list .lead{flex:1;border-bottom:2px dotted var(--line2);transform:translateY(-6px)}
+.menu-list .p{font-family:var(--mono);font-size:20px;font-weight:700}
+.menu-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:24px 32px;background:var(--red);color:#fff}
+.menu-foot > span{font-weight:900;font-stretch:62%;font-size:40px;line-height:.9;text-transform:uppercase}
+
+/* Dock and toast */
+.dock{display:none}
+.toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom,0px));z-index:40;transform:translate(-50%,16px);opacity:0;padding:12px 16px;background:var(--fg);color:var(--bg);font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;pointer-events:none;transition:opacity .25s ease,transform .25s var(--ease)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (max-width:1180px){
+  .top{padding:0 24px 0 40px}
+  .top .where{display:none}
+  .top{grid-template-columns:1fr auto}
+  .hero-copy{padding:48px 40px 40px}
+  .book{padding:56px 40px}
+  .visit{grid-template-columns:1fr 1fr}
+  .map{grid-column:1/-1;border-left:0;border-top:1px solid var(--line)}
+  footer{padding:28px 40px}
+}
+
+@media (max-width:760px){
+  body{padding-bottom:calc(68px + env(safe-area-inset-bottom,0px))}
+  .top{height:64px;padding:0 12px 0 20px}
+  .top .status{display:none}
+  .logo{font-size:26px}
+  .hero{grid-template-columns:1fr;min-height:0;max-height:none}
+  .photo{order:-1;position:relative;height:36svh;min-height:240px;max-height:340px}
+  .photo .tag{font-size:10px}
+  .hero-copy{order:1}
+  .mstatus{order:0;display:flex;justify-content:space-between;align-items:center;gap:12px;height:52px;padding:0 20px;background:var(--deep);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+  .mstatus .sub{color:var(--muted);text-align:right}
+  .hero-copy{padding:30px 20px 36px;gap:30px}
+  .kicker{font-size:12px}
+  h1{font-size:clamp(54px,17vw,68px);margin:20px 0 26px}
+  .ctas{flex-direction:column;gap:10px}
+  .btn-call{width:100%;max-width:none;flex:none;min-height:84px}
+  .btn-call strong{font-size:32px}
+  .btn-call small{font-size:11px}
+  .btn-call .arrow{width:72px}
+  .btn-menu{min-height:58px;flex-direction:row;align-items:center;justify-content:space-between;padding:0 20px;--cut:10px}
+  .btn-menu strong{font-size:20px}
+  .note{font-size:12px;margin-top:16px}
+  .reviews{grid-template-columns:1fr;gap:12px;padding-top:20px}
+  .reviews .meta{flex-direction:row;justify-content:space-between;align-items:center}
+  .rv-nav{display:none}
+  .slide q{font-size:28px}
+  .visit{grid-template-columns:1fr}
+  .ticket-wrap{padding:0 20px;order:-1;margin-top:8px}
+  .map{min-height:240px;margin:16px 20px 0;border:1px solid var(--line)}
+  .book{order:1;padding:40px 20px;margin-top:32px;gap:22px}
+  .book h2{font-size:68px;line-height:.88}
+  .btn-dark{min-height:64px;font-size:26px;--cut:12px}
+  .addr{font-size:26px}
+  footer{flex-direction:column;padding:28px 20px;font-size:11px}
+
+  .menu{margin:auto 0 0;width:100%;max-height:92svh;border:0;border-top:1px solid var(--line2);overflow:auto}
+  .menu[open]{animation:up .42s var(--ease)}
+  .menu.closing{animation:down .26s ease forwards}
+  @keyframes up{from{transform:translateY(100%)}to{transform:none}}
+  @keyframes down{to{transform:translateY(100%)}}
+  .grab{display:block;position:sticky;top:0;z-index:2;padding:10px 0 6px;background:var(--bg);touch-action:none}
+  .grab::before{content:"";display:block;width:44px;height:4px;margin:0 auto;background:var(--line2)}
+  .menu-head{position:sticky;top:20px;z-index:2;background:var(--bg);padding:6px 12px 14px 20px;touch-action:none}
+  .menu-body{padding:24px 20px}
+  .menu-body h2{font-size:64px}
+  .menu-list h3{font-size:24px}
+  .menu-list .p{font-size:17px}
+  .menu-list li{gap:10px;padding:16px 0}
+  .menu-foot{position:sticky;bottom:0;flex-direction:column;align-items:stretch;padding:18px 20px calc(18px + env(safe-area-inset-bottom,0px))}
+  .menu-foot > span{font-size:30px}
+
+  .dock{display:grid;grid-template-columns:64px 1fr 64px;position:fixed;left:0;right:0;bottom:0;z-index:30;padding-bottom:env(safe-area-inset-bottom,0px);background:var(--deep);border-top:1px solid #2A2A2A;transform:translateY(105%);transition:transform .4s var(--ease)}
+  .dock.show{transform:none}
+  .dock a,.dock button{height:64px;display:grid;place-items:center}
+  .dock .side{border-right:1px solid #2A2A2A}
+  .dock .side:last-child{border-right:0;border-left:1px solid #2A2A2A}
+  .dock .call{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--red);color:#fff;font-weight:900;font-stretch:75%;font-size:22px;letter-spacing:.04em;text-transform:uppercase}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  h1 span,.ctas,.reveal,.menu[open] .menu-list li{opacity:1;transform:none}
+  .photo img{transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a href="#" class="logo" aria-label="Reform Barbershop home"><b>RE</b>FORM BARBERSHOP</a>
+  <span class="where">SUPERVALU SHOPPING CENTRE · DONEGAL TOWN</span>
+  <div class="right">
+    <span class="status js-status" aria-live="polite"><span class="led"></span><span class="main">CHECKING</span><span class="sub"></span></span>
+    <button type="button" class="btn-line tap js-open-menu">Menu
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-copy">
+    <div>
+      <p class="kicker">// BARBERS · DONEGAL TOWN, IE</p>
+      <h1><span>Modern</span><span>cuts.</span><span>Traditional</span><span>craft.</span></h1>
+      <div class="ctas">
+        <a href="tel:+353877801057" class="btn-call cut tap js-call" id="hero-call">
+          <span class="txt"><small>Tap to call + book</small><strong>087 780 1057</strong></span>
+          <span class="arrow"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+        </a>
+        <button type="button" class="btn-menu cut tap js-open-menu"><strong>Menu →</strong></button>
+      </div>
+      <p class="note">By appointment · walk-ins when we can fit you in</p>
+    </div>
+
+    <div class="reviews" aria-roledescription="carousel" aria-label="Customer reviews">
+      <div class="meta">
+        <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+        <span class="count" id="rv-count">01 / 03</span>
+        <div class="rv-nav">
+          <button type="button" class="tap" id="rv-prev" aria-label="Previous review"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <button type="button" class="tap" id="rv-next" aria-label="Next review"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+      <div class="slides" id="slides">
+        <figure class="slide"><q>Definitely the best barber in Donegal by a mile.</q><cite>BOB R. · GOOGLE</cite></figure>
+        <figure class="slide"><q>Great haircut and friendly staff. Would recommend for a fade.</q><cite>CONOR D. · GOOGLE</cite></figure>
+        <figure class="slide"><q>Great cuts and always a good chat. Fully recommended.</q><cite>RONNIE C. · GOOGLE</cite></figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="photo">
+    <img src="images/storefront.jpg" alt="The Reform Barbershop storefront in the SuperValu Shopping Centre, Donegal Town" width="941" height="1176" fetchpriority="high">
+    <span class="tag t1">FIG. 01 · THE SHOP</span>
+    <span class="tag t2">REFORM / DONEGAL TOWN</span>
+  </div>
+
+  <div class="mstatus js-status" aria-live="polite"><span style="display:flex;align-items:center;gap:10px"><span class="led"></span><span class="main">CHECKING</span></span><span class="sub"></span></div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="book">
+    <h2 class="reveal">Book<br>your<br>chair.</h2>
+    <div class="reveal d1">
+      <a href="tel:+353877801057" class="btn-dark cut tap js-call">087 780 1057<span>CALL ↗</span></a>
+      <p>Call ahead and we'll get you in the chair.</p>
+    </div>
+  </div>
+
+  <div class="ticket-wrap">
+    <div class="ticket reveal">
+      <div class="stub">
+        <span class="label">Find us</span>
+        <address class="addr">SuperValu Shopping Centre, Donegal Town</address>
+        <div class="chips">
+          <a class="chip tap" href="https://www.google.com/maps/search/?api=1&query=Reform+Barbershop+SuperValu+Shopping+Centre+Donegal+Town" target="_blank" rel="noopener">Directions ↗</a>
+          <button type="button" class="chip tap js-copy" data-copy="Reform Barbershop, SuperValu Shopping Centre, 9 Newpark Road, Donegal Town, Co. Donegal">Copy</button>
+        </div>
+      </div>
+      <div class="perf" aria-hidden="true"><i></i></div>
+      <ul class="hours" id="hours" aria-label="Opening hours">
+        <li class="hours-head"><span class="label">Hours</span><span class="hstatus js-status" aria-live="polite"><span class="led"></span><span class="main">CHECKING</span></span></li>
+        <li class="hours-sub js-status-sub"></li>
+        <li data-day="1"><span class="d">MON</span><span>09:30 – 18:30</span></li>
+        <li data-day="2"><span class="d">TUE</span><span>09:30 – 18:30</span></li>
+        <li data-day="3"><span class="d">WED</span><span>09:30 – 18:30</span></li>
+        <li data-day="4"><span class="d">THU</span><span>09:30 – 18:30</span></li>
+        <li data-day="5"><span class="d">FRI</span><span>09:30 – 18:30</span></li>
+        <li data-day="6"><span class="d">SAT</span><span>09:30 – 18:30</span></li>
+        <li data-day="0" class="closed"><span class="d">SUN</span><span>CLOSED</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="map reveal d2">
+    <iframe title="Map showing Reform Barbershop in Donegal Town" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Reform+Barbershop,+SuperValu+Shopping+Centre,+Donegal+Town&z=16&output=embed"></iframe>
+    <a class="chip open-maps tap" href="https://www.google.com/maps/search/?api=1&query=Reform+Barbershop+SuperValu+Shopping+Centre+Donegal+Town" target="_blank" rel="noopener">Open in Maps ↗</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <a href="mailto:Reformbarbershop@hotmail.com">Reformbarbershop@hotmail.com</a>
+  <nav>
+    <a href="#" target="_blank" rel="noopener">Facebook</a><!-- TODO: add Facebook link -->
+    <a href="#" target="_blank" rel="noopener">Instagram</a><!-- TODO: add Instagram link -->
+  </nav>
+  <span>© <span id="yr">2026</span> Reform Barbershop · Site by <a href="https://sitesbycharlie.ie" target="_blank" rel="noopener">SitesByCharlie</a></span>
+</footer>
+
+<nav class="dock" id="dock" aria-label="Quick actions">
+  <a class="side tap" href="https://www.google.com/maps/search/?api=1&query=Reform+Barbershop+SuperValu+Shopping+Centre+Donegal+Town" target="_blank" rel="noopener" aria-label="Directions"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></a>
+  <a class="call tap js-call" href="tel:+353877801057">Call to book</a>
+  <button type="button" class="side tap js-open-menu" aria-label="View menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></button>
+</nav>
+
+<div class="toast" id="toast" role="status"></div>
+
+<dialog class="menu" id="menu" aria-labelledby="menu-title">
+  <div class="grab" id="grab" aria-hidden="true"></div>
+  <div class="menu-head" id="menu-head">
+    <span class="logo" style="font-size:24px"><b>RE</b>FORM</span>
+    <button type="button" class="btn-line tap" id="close-menu">Close
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="menu-body">
+    <p class="label">// Services &amp; prices</p>
+    <h2 id="menu-title">The <em>menu</em></h2>
+    <ul class="menu-list">
+      <li><span class="n">01</span><h3>Gents Haircut</h3><span class="lead"></span><span class="p">€18</span></li>
+      <li><span class="n">02</span><h3>Student Haircut</h3><span class="lead"></span><span class="p">€17</span></li>
+      <li><span class="n">03</span><h3>Kids Haircut</h3><span class="lead"></span><span class="p">€16</span></li>
+      <li><span class="n">04</span><h3>Senior Haircut</h3><span class="lead"></span><span class="p">€16</span></li>
+      <li><span class="n">05</span><h3>Head Shave</h3><span class="lead"></span><span class="p">€16</span></li>
+      <li><span class="n">06</span><h3>Haircut &amp; Beard</h3><span class="lead"></span><span class="p">€24</span></li>
+    </ul>
+    <p class="note">By appointment · walk-ins when we can fit you in</p>
+  </div>
+  <div class="menu-foot">
+    <span>Ready for a fresh cut?</span>
+    <a href="tel:+353877801057" class="btn-dark cut tap js-call">087 780 1057<span>CALL ↗</span></a>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Haptic tick on Android */
+  document.addEventListener('pointerdown', function(e){
+    if (e.target.closest('.tap') && navigator.vibrate) { try { navigator.vibrate(8); } catch(_){} }
+  }, {passive:true});
+
+  /* Open / closed, from the visitor's device clock */
+  var OPEN = 9*60+30, CLOSE = 18*60+30, DAYS = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+  function fmtLeft(m){ var h = Math.floor(m/60), r = m%60; return (h ? h+'H ' : '') + r + 'M'; }
+  function nextOpenDay(day){ var d = (day+1)%7; while (d === 0) d = (d+1)%7; return d; }
+  function updateStatus(){
+    var now = new Date(), day = now.getDay(), mins = now.getHours()*60 + now.getMinutes();
+    var openToday = day !== 0, state = 'closed', main = 'CLOSED', sub = '';
+    if (openToday && mins >= OPEN && mins < CLOSE){
+      var left = CLOSE - mins;
+      state = left <= 30 ? 'soon' : 'open';
+      main = left <= 30 ? 'CLOSING SOON' : 'OPEN NOW';
+      sub = 'CLOSES 18:30 · ' + fmtLeft(left) + ' LEFT';
+    } else if (openToday && mins < OPEN){
+      sub = 'OPENS 09:30 · IN ' + fmtLeft(OPEN - mins);
+    } else {
+      var n = nextOpenDay(day);
+      sub = 'OPENS ' + (n === (day+1)%7 ? 'TOMORROW' : DAYS[n]) + ' 09:30';
+    }
+    document.querySelectorAll('.js-status').forEach(function(el){
+      el.classList.toggle('is-open', state === 'open');
+      el.classList.toggle('is-soon', state === 'soon');
+      el.querySelector('.main').textContent = main;
+      var se = el.querySelector('.sub'); if (se) se.textContent = (el.classList.contains('status') ? '· ' : '') + sub;
+    });
+    document.querySelectorAll('.js-status-sub').forEach(function(el){ el.textContent = sub; });
+    document.querySelectorAll('#hours li[data-day]').forEach(function(li){
+      li.classList.toggle('today', +li.dataset.day === day);
+    });
+  }
+  updateStatus(); setInterval(updateStatus, 30000);
+
+  /* Reviews */
+  var slides = document.getElementById('slides'), total = slides.children.length, idx = 0, auto;
+  var counter = document.getElementById('rv-count');
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+  function go(i){ idx = (i + total) % total; slides.scrollTo({left: slides.clientWidth*idx, behavior: reduce ? 'auto' : 'smooth'}); }
+  slides.addEventListener('scroll', function(){
+    idx = Math.round(slides.scrollLeft / slides.clientWidth);
+    counter.textContent = pad(idx+1) + ' / ' + pad(total);
+  }, {passive:true});
+  function stop(){ clearInterval(auto); }
+  document.getElementById('rv-prev').addEventListener('click', function(){ stop(); go(idx-1); });
+  document.getElementById('rv-next').addEventListener('click', function(){ stop(); go(idx+1); });
+  slides.addEventListener('touchstart', stop, {passive:true});
+  if (!reduce) auto = setInterval(function(){ go(idx+1); }, 5500);
+
+  /* Scroll reveal */
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window){
+    var ro = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } });
+    }, {threshold:.15});
+    reveals.forEach(function(el){ ro.observe(el); });
+  } else { reveals.forEach(function(el){ el.classList.add('in'); }); }
+
+  /* Mobile dock appears once the hero call button scrolls away */
+  var dock = document.getElementById('dock');
+  if ('IntersectionObserver' in window){
+    new IntersectionObserver(function(e){ dock.classList.toggle('show', !e[0].isIntersecting); })
+      .observe(document.getElementById('hero-call'));
+  } else { dock.classList.add('show'); }
+
+  /* Copy address */
+  var toast = document.getElementById('toast'), tt;
+  function showToast(m){ toast.textContent = m; toast.classList.add('show'); clearTimeout(tt); tt = setTimeout(function(){ toast.classList.remove('show'); }, 1800); }
+  document.querySelectorAll('.js-copy').forEach(function(b){
+    b.addEventListener('click', function(){
+      (navigator.clipboard ? navigator.clipboard.writeText(b.dataset.copy) : Promise.reject())
+        .then(function(){ showToast('Address copied'); }, function(){ showToast('Long-press the address to copy'); });
+    });
+  });
+
+  /* Menu: modal on desktop, swipeable bottom sheet on mobile */
+  var menu = document.getElementById('menu');
+  function openMenu(){ if (menu.showModal) menu.showModal(); else menu.setAttribute('open',''); document.body.style.overflow = 'hidden'; menu.scrollTop = 0; }
+  function finish(){ menu.classList.remove('closing'); menu.style.transform = ''; menu.style.transition = ''; if (menu.close) menu.close(); else menu.removeAttribute('open'); }
+  function closeMenu(){ if (reduce){ finish(); return; } menu.classList.add('closing'); menu.addEventListener('animationend', finish, {once:true}); }
+  document.querySelectorAll('.js-open-menu').forEach(function(b){ b.addEventListener('click', openMenu); });
+  document.getElementById('close-menu').addEventListener('click', closeMenu);
+  menu.addEventListener('cancel', function(e){ e.preventDefault(); closeMenu(); });
+  menu.addEventListener('close', function(){ document.body.style.overflow = ''; });
+  menu.addEventListener('click', function(e){ if (e.target === menu) closeMenu(); });
+
+  var startY = null, dy = 0;
+  function down(e){ if (window.innerWidth > 760) return; startY = e.touches[0].clientY; dy = 0; menu.style.transition = 'none'; }
+  function move(e){ if (startY === null) return; dy = Math.max(0, e.touches[0].clientY - startY); menu.style.transform = 'translateY(' + dy + 'px)'; }
+  function up(){
+    if (startY === null) return; startY = null;
+    menu.style.transition = 'transform .26s ease';
+    if (dy > 110){ menu.style.transform = 'translateY(100%)'; setTimeout(finish, 260); }
+    else { menu.style.transform = ''; }
+  }
+  ['grab','menu-head'].forEach(function(id){
+    var el = document.getElementById(id);
+    el.addEventListener('touchstart', down, {passive:true});
+    el.addEventListener('touchmove', move, {passive:true});
+    el.addEventListener('touchend', up);
+  });
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
