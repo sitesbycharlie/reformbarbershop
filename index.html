@@ -66,10 +66,11 @@ svg{flex-shrink:0}
 .hero-copy{display:flex;flex-direction:column;justify-content:space-between;gap:40px;padding:64px 64px 48px 80px}
 .kicker{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--muted)}
 h1{font-weight:900;font-stretch:62%;font-size:clamp(64px,8.2vw,124px);line-height:.86;letter-spacing:-.01em;text-transform:uppercase;margin:28px 0 36px}
+h1 .mbr{display:none}
 h1 span{display:block;opacity:0;transform:translateY(22px);animation:rise .7s var(--ease) forwards}
-h1 span:nth-child(2){animation-delay:.07s}
-h1 span:nth-child(3){animation-delay:.14s}
-h1 span:nth-child(4){animation-delay:.21s;color:var(--red)}
+h1 span:nth-of-type(2){animation-delay:.07s}
+h1 span:nth-of-type(3){animation-delay:.14s}
+h1 span:nth-of-type(4){animation-delay:.21s;color:var(--red)}
 @keyframes rise{to{opacity:1;transform:none}}
 .ctas{display:flex;flex-wrap:wrap;gap:12px;opacity:0;animation:rise .7s var(--ease) .32s forwards;transform:translateY(14px)}
 .btn-call{position:relative;isolation:isolate;overflow:hidden;display:flex;min-height:92px;flex:1 1 330px;max-width:420px;background:var(--red);color:#fff}
@@ -185,6 +186,8 @@ footer a:hover{color:var(--fg)}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 
 @media (max-width:1180px){
+  .photo .t1{display:none}
+  .photo img{object-position:22% 40%}
   .top{padding:0 24px 0 40px}
   .top .where{display:none}
   .top{grid-template-columns:1fr auto}
@@ -201,22 +204,24 @@ footer a:hover{color:var(--fg)}
   .top .status{display:none}
   .logo{font-size:26px}
   .hero{grid-template-columns:1fr;min-height:0;max-height:none}
-  .photo{order:-1;position:relative;height:36svh;min-height:240px;max-height:340px}
+  .photo{order:-1;position:relative;height:clamp(150px,25svh,240px)}
   .photo .tag{font-size:10px}
   .hero-copy{order:1}
-  .mstatus{order:0;display:flex;justify-content:space-between;align-items:center;gap:12px;height:52px;padding:0 20px;background:var(--deep);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+  .mstatus{order:0;display:flex;justify-content:space-between;align-items:center;gap:12px;height:44px;padding:0 20px;background:var(--deep);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
   .mstatus .sub{color:var(--muted);text-align:right}
-  .hero-copy{padding:30px 20px 36px;gap:30px}
+  .hero-copy{padding:18px 20px 32px;gap:28px}
   .kicker{font-size:12px}
-  h1{font-size:clamp(54px,17vw,68px);margin:20px 0 26px}
+  h1{font-size:clamp(48px,15vw,62px);margin:12px 0 18px}
+  h1 span{display:inline-block}
+  h1 .mbr{display:inline}
   .ctas{flex-direction:column;gap:10px}
-  .btn-call{width:100%;max-width:none;flex:none;min-height:84px}
+  .btn-call{width:100%;max-width:none;flex:none;min-height:74px}
   .btn-call strong{font-size:32px}
   .btn-call small{font-size:11px}
   .btn-call .arrow{width:72px}
-  .btn-menu{min-height:58px;flex-direction:row;align-items:center;justify-content:space-between;padding:0 20px;--cut:10px}
+  .btn-menu{min-height:52px;flex-direction:row;align-items:center;justify-content:space-between;padding:0 20px;--cut:10px}
   .btn-menu strong{font-size:20px}
-  .note{font-size:12px;margin-top:16px}
+  .note{font-size:11px;margin-top:12px}
   .reviews{grid-template-columns:1fr;gap:12px;padding-top:20px}
   .reviews .meta{flex-direction:row;justify-content:space-between;align-items:center}
   .rv-nav{display:none}
@@ -278,7 +283,7 @@ footer a:hover{color:var(--fg)}
   <div class="hero-copy">
     <div>
       <p class="kicker">// BARBERS · DONEGAL TOWN, IE</p>
-      <h1><span>Sharp</span><span>cuts.</span><span>Good</span><span>chat.</span></h1>
+      <h1><span>Sharp</span> <span>cuts.</span><br class="mbr"><span>Good</span> <span>chat.</span></h1>
       <div class="ctas">
         <a href="tel:+353877801057" class="btn-call cut tap js-call" id="hero-call">
           <span class="txt"><small>Tap to call + book</small><strong>087 780 1057</strong></span>
@@ -319,7 +324,7 @@ footer a:hover{color:var(--fg)}
     <h2 class="reveal">Book<br>your<br>chair.</h2>
     <div class="reveal d1">
       <a href="tel:+353877801057" class="btn-dark cut tap js-call">087 780 1057<span>CALL ↗</span></a>
-      <p>Call ahead and we'll get you in the chair.</p>
+      <p>Give us a ring and we'll get you sorted.</p>
     </div>
   </div>
 
