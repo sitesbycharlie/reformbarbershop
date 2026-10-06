@@ -360,7 +360,25 @@ footer nav a{display:inline-flex;align-items:center;gap:6px}
   .pick-head{padding:20px 12px 18px 20px}
   .pick-btns{padding-bottom:env(safe-area-inset-bottom,0px);background:var(--bg)}
 }
+
+/* Cookie banner */
+.ck{position:fixed;left:16px;bottom:16px;z-index:35;max-width:360px;display:flex;flex-direction:column;gap:12px;padding:16px;background:var(--surface);border:1px solid var(--line2);box-shadow:0 10px 30px rgba(0,0,0,.4);animation:pop .35s var(--ease)}
+.ck[hidden]{display:none}
+.ck p{font-size:14px;line-height:1.4;color:var(--fg)}
+.ck-b{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ck-b button{min-height:44px;font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;background:none;color:var(--fg);border:1px solid var(--line2)}
+.ck-b .ck-yes{background:var(--red);border-color:var(--red);color:#fff}
+.ck-link{background:none;border:0;padding:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer}
+@media (max-width:760px){
+  .ck{left:12px;right:12px;max-width:none;bottom:calc(12px + env(safe-area-inset-bottom,0px));flex-direction:row;align-items:center;padding:12px}
+  .ck p{flex:1;font-size:13px}
+  .ck-b{display:flex}
+  .ck-b button{padding:0 12px}
+  body.dock-on .ck{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+}
 </style>
+<!-- Google Analytics (G-4MFWYH2HX5). It only loads after a visitor taps Accept on the cookie banner. -->
+<script>window.GA_ID='G-4MFWYH2HX5';window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}</script>
 </head>
 <body>
 
@@ -469,7 +487,7 @@ footer nav a{display:inline-flex;align-items:center;gap:6px}
   <nav>
     <a href="https://www.facebook.com/reformbarbershopdonegaltown/" target="_blank" rel="noopener">Facebook <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
   </nav>
-  <span>© <span id="yr">2026</span> Reform Barbershop · Site by <a href="https://sitesbycharlie.ie" target="_blank" rel="noopener">SitesByCharlie</a></span>
+  <span>© <span id="yr">2026</span> Reform Barbershop · <button type="button" class="ck-link" id="ck-open">Cookies</button> · Site by <a href="https://sitesbycharlie.ie" target="_blank" rel="noopener">SitesByCharlie</a></span>
 </footer>
 
 <nav class="dock" id="dock" aria-label="Quick actions">
@@ -478,6 +496,10 @@ footer nav a{display:inline-flex;align-items:center;gap:6px}
   <button type="button" class="side tap js-open-menu" aria-label="View menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></button>
 </nav>
 
+<div class="ck" id="ck" role="region" aria-label="Cookies" hidden>
+  <p>We use cookies to see how people use the site.</p>
+  <div class="ck-b"><button type="button" class="tap" id="ck-no">Decline</button><button type="button" class="tap ck-yes" id="ck-yes">Accept</button></div>
+</div>
 <div class="toast" id="toast" role="status"></div>
 <dialog class="pick" id="pick" aria-labelledby="pick-title">
   <div class="pick-head"><div><p class="label">Book your chair</p><p class="pick-num" id="pick-title">087 780 1057</p></div><button type="button" class="pick-x tap" id="pick-close" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div>
@@ -577,7 +599,7 @@ footer nav a{display:inline-flex;align-items:center;gap:6px}
   /* Mobile dock appears once the hero call button scrolls away */
   var dock = document.getElementById('dock');
   if ('IntersectionObserver' in window){
-    new IntersectionObserver(function(e){ dock.classList.toggle('show', !e[0].isIntersecting); })
+    new IntersectionObserver(function(e){ dock.classList.toggle('show', !e[0].isIntersecting); document.body.classList.toggle('dock-on', !e[0].isIntersecting); })
       .observe(document.getElementById('hero-call'));
   } else { dock.classList.add('show'); }
 
@@ -631,6 +653,38 @@ footer nav a{display:inline-flex;align-items:center;gap:6px}
   document.getElementById('pick-close').addEventListener('click', closePick);
   pick.addEventListener('click', function(e){ if (e.target === pick) closePick(); });
   pick.querySelectorAll('.pick-btn').forEach(function(a){ a.addEventListener('click', function(){ setTimeout(closePick, 300); }); });
+
+  /* Cookie banner: Analytics only loads after Accept */
+  var ck = document.getElementById('ck'), KEY = 'reform-cookies';
+  function getC(){ try { return localStorage.getItem(KEY); } catch(e){ return null; } }
+  function setC(v){ try { localStorage.setItem(KEY, v); } catch(e){} }
+  function loadGA(){
+    if (window.gaLoaded || !/^G-[A-Z0-9]+$/.test(window.GA_ID) || window.GA_ID === 'G-XXXXXXXXXX') return;
+    window.gaLoaded = true;
+    var sc = document.createElement('script'); sc.async = true;
+    sc.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_ID;
+    document.head.appendChild(sc);
+    gtag('js', new Date()); gtag('config', window.GA_ID);
+  }
+  var choice = getC();
+  if (choice === 'yes') loadGA(); else if (!choice) ck.hidden = false;
+  document.getElementById('ck-yes').addEventListener('click', function(){ setC('yes'); ck.hidden = true; loadGA(); });
+  document.getElementById('ck-no').addEventListener('click', function(){ setC('no'); ck.hidden = true; });
+  document.getElementById('ck-open').addEventListener('click', function(){ ck.hidden = false; });
+
+  /* Analytics events: which buttons people tap, and where on the page */
+  function track(name, el){
+    if (!window.gaLoaded) return;
+    var where = el.closest('.dock') ? 'bottom_bar' : el.closest('#menu') ? 'menu' : el.closest('footer') ? 'footer'
+      : el.closest('.map') ? 'map' : el.id === 'hero-call' ? 'hero' : el.closest('#pick') ? 'popup' : 'book_section';
+    gtag('event', name, {location: where});
+  }
+  document.querySelectorAll('.js-call').forEach(function(a){ a.addEventListener('click', function(){ track('number_tap', a); }); });
+  document.querySelector('#pick .pick-btn.call').addEventListener('click', function(){ track('call_click', this); });
+  document.querySelector('#pick .pick-btn.text').addEventListener('click', function(){ track('text_click', this); });
+  document.querySelectorAll('a[href*="google.com/maps"]').forEach(function(a){ a.addEventListener('click', function(){ track('directions_click', a); }); });
+  document.querySelectorAll('a[href*="facebook.com"]').forEach(function(a){ a.addEventListener('click', function(){ track('facebook_click', a); }); });
+  document.querySelectorAll('.js-open-menu').forEach(function(b){ b.addEventListener('click', function(){ track('menu_open', b); }); });
 
   document.getElementById('yr').textContent = new Date().getFullYear();
 })();
