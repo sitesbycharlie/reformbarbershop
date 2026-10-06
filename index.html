@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Reform Barbershop | Barber in Donegal Town, Co. Donegal</title>
-<meta name="description" content="Barber in Donegal Town. Men's haircuts, skin fades, beard trims and kids' cuts from €16 at Reform Barbershop, SuperValu Shopping Centre. Open Mon to Sat. Call 087 780 1057 to book.">
+<meta name="description" content="Barber in Donegal Town. Men's haircuts, skin fades, beard trims and kids' cuts from €16 at Reform Barbershop, SuperValu Shopping Centre. Open Mon to Sat. Call or text 087 780 1057 to book.">
 <meta name="theme-color" content="#121212">
 <!-- When the .ie domain goes live, swap https://sitesbycharlie.github.io/reformbarbershop/ for https://reformbarbershop.ie/ in the 4 lines below -->
 <link rel="canonical" href="https://sitesbycharlie.github.io/reformbarbershop/">
@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Reform Barbershop">
 <meta property="og:locale" content="en_IE">
 <meta property="og:title" content="Reform Barbershop, Donegal Town">
-<meta property="og:description" content="Sharp cuts. Good chats. Haircuts from €16 in the SuperValu Shopping Centre. Call 087 780 1057 to book.">
+<meta property="og:description" content="Sharp cuts. Good chats. Haircuts from €16 in the SuperValu Shopping Centre. Call or text 087 780 1057 to book.">
 <meta property="og:image" content="https://sitesbycharlie.github.io/reformbarbershop/og-image_1.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -339,6 +339,28 @@ footer nav a{display:inline-flex;align-items:center;gap:6px}
   h1 span,.ctas,.reveal,.menu[open] .menu-list li{opacity:1;transform:none}
   .photo img{transform:none}
 }
+
+/* Call or text chooser */
+.btn-dark{white-space:nowrap;gap:12px}
+@media (max-width:380px){.btn-dark{font-size:19px;padding:0 16px}.btn-dark span{font-size:11px;letter-spacing:.04em}}
+.pick{border:1px solid var(--line2);padding:0;margin:auto;width:min(420px,calc(100% - 32px));background:var(--bg);color:var(--fg)}
+.pick::backdrop{background:rgba(0,0,0,.7);backdrop-filter:blur(3px)}
+.pick[open]{animation:pop .3s var(--ease)}
+.pick-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:22px 16px 18px 24px}
+.pick-num{margin-top:8px;font-family:var(--display);font-size:30px;line-height:1;letter-spacing:-.01em;white-space:nowrap}
+.pick-x{width:44px;height:44px;display:grid;place-items:center;background:none;border:1px solid var(--line2);color:var(--fg);cursor:pointer}
+.pick-btns{display:grid;grid-template-columns:1fr 1fr}
+.pick-btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:76px;font-family:var(--display);font-size:22px;text-transform:uppercase;letter-spacing:.01em}
+.pick-btn.call{background:var(--red);color:#fff}
+.pick-btn.call:hover{background:var(--red-dark)}
+.pick-btn.text{background:#EDE6DA;color:#111}
+.pick-btn.text:hover{background:#fff}
+@media (max-width:760px){
+  .pick{margin:auto 0 0;width:100%;max-width:100%;border:0;border-top:1px solid var(--line2)}
+  .pick[open]{animation:up .32s var(--ease)}
+  .pick-head{padding:20px 12px 18px 20px}
+  .pick-btns{padding-bottom:env(safe-area-inset-bottom,0px);background:var(--bg)}
+}
 </style>
 </head>
 <body>
@@ -361,7 +383,7 @@ footer nav a{display:inline-flex;align-items:center;gap:6px}
       <h1><span>Sharp</span> <span>cuts.</span><br class="mbr"><span>Good</span> <span>chats.</span></h1>
       <div class="ctas">
         <a href="tel:+353877801057" class="btn-call cut tap js-call" id="hero-call">
-          <span class="txt"><small>Tap to call + book</small><strong>087 780 1057</strong></span>
+          <span class="txt"><small>Call or text to book</small><strong>087 780 1057</strong></span>
           <span class="arrow"><svg class="ph" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
         </a>
         <button type="button" class="btn-menu cut tap js-open-menu"><strong>Menu →</strong></button>
@@ -397,8 +419,8 @@ footer nav a{display:inline-flex;align-items:center;gap:6px}
   <div class="book">
     <h2 class="reveal">Book<br>your<br>chair.</h2>
     <div class="reveal d1">
-      <a href="tel:+353877801057" class="btn-dark cut tap js-call">087 780 1057<span>CALL <svg class="ph" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span></a>
-      <p>Give us a ring and we'll get you sorted.</p>
+      <a href="tel:+353877801057" class="btn-dark cut tap js-call">087 780 1057<span>CALL / TEXT <svg class="ph" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span></a>
+      <p>Give us a ring or drop us a text and we'll get you sorted.</p>
     </div>
   </div>
 
@@ -434,11 +456,11 @@ footer nav a{display:inline-flex;align-items:center;gap:6px}
   </div>
   <div class="faq-list reveal d1">
       <details class="qa"><summary><span class="qt">How much is a haircut at Reform Barbershop?</span><span class="qi" aria-hidden="true"></span></summary><p>A gents haircut is €18, student haircut €17, kids and senior haircuts €16, a head shave €16, and haircut and beard €24.</p></details>
-      <details class="qa"><summary><span class="qt">Do you take walk-ins?</span><span class="qi" aria-hidden="true"></span></summary><p>We work mainly by appointment, but walk-ins are welcome when we can fit you in. The quickest way to book is to call 087 780 1057.</p></details>
+      <details class="qa"><summary><span class="qt">Do you take walk-ins?</span><span class="qi" aria-hidden="true"></span></summary><p>We work mainly by appointment, but walk-ins are welcome when we can fit you in. The quickest way to book is to call or text 087 780 1057.</p></details>
       <details class="qa"><summary><span class="qt">Where is Reform Barbershop?</span><span class="qi" aria-hidden="true"></span></summary><p>We're inside the SuperValu Shopping Centre on Newpark Road, Donegal Town, Co. Donegal, with parking right outside.</p></details>
       <details class="qa"><summary><span class="qt">What are your opening hours?</span><span class="qi" aria-hidden="true"></span></summary><p>Monday to Saturday, 9:30am to 6:30pm. We're closed on Sundays.</p></details>
       <details class="qa"><summary><span class="qt">Do you do skin fades and beard trims?</span><span class="qi" aria-hidden="true"></span></summary><p>Yes. Skin fades, tapers, scissor cuts and beard trims, with our haircut and beard combo at €24.</p></details>
-      <details class="qa"><summary><span class="qt">Do you cut kids' hair?</span><span class="qi" aria-hidden="true"></span></summary><p>Yes, kids' haircuts are €16. Call ahead to book a time that suits.</p></details>
+      <details class="qa"><summary><span class="qt">Do you cut kids' hair?</span><span class="qi" aria-hidden="true"></span></summary><p>Yes, kids' haircuts are €16. Call or text ahead to book a time that suits.</p></details>
   </div>
 </section>
 </main>
@@ -453,11 +475,19 @@ footer nav a{display:inline-flex;align-items:center;gap:6px}
 
 <nav class="dock" id="dock" aria-label="Quick actions">
   <a class="side tap" href="https://www.google.com/maps/search/?api=1&query=Reform+Barbershop+SuperValu+Shopping+Centre+Donegal+Town" target="_blank" rel="noopener" aria-label="Directions"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></a>
-  <a class="call tap js-call" href="tel:+353877801057"><svg class="ph" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call to book</a>
+  <a class="call tap js-call" href="tel:+353877801057"><svg class="ph" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call or text</a>
   <button type="button" class="side tap js-open-menu" aria-label="View menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></button>
 </nav>
 
 <div class="toast" id="toast" role="status"></div>
+<dialog class="pick" id="pick" aria-labelledby="pick-title">
+  <div class="pick-head"><div><p class="label">Book your chair</p><p class="pick-num" id="pick-title">087 780 1057</p></div><button type="button" class="pick-x tap" id="pick-close" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div>
+  <div class="pick-btns">
+    <a class="pick-btn call tap" href="tel:+353877801057"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call</a>
+    <a class="pick-btn text tap" href="sms:+353877801057?&amp;body=Hi%2C%20I%27d%20like%20to%20book%20a%20haircut"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text</a>
+  </div>
+</dialog>
+
 
 <dialog class="menu" id="menu" aria-labelledby="menu-title">
   <div class="grab" id="grab" aria-hidden="true"></div>
@@ -480,7 +510,7 @@ footer nav a{display:inline-flex;align-items:center;gap:6px}
   </div>
   <div class="menu-foot">
     <span>Ready for a fresh cut?</span>
-    <a href="tel:+353877801057" class="btn-dark cut tap js-call">087 780 1057<span>CALL <svg class="ph" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span></a>
+    <a href="tel:+353877801057" class="btn-dark cut tap js-call">087 780 1057<span>CALL / TEXT <svg class="ph" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span></a>
   </div>
 </dialog>
 
@@ -588,6 +618,20 @@ footer nav a{display:inline-flex;align-items:center;gap:6px}
     el.addEventListener('touchmove', move, {passive:true});
     el.addEventListener('touchend', up);
   });
+
+
+  /* Call or text chooser */
+  var pick = document.getElementById('pick');
+  function closePick(){ if (pick.close) pick.close(); else pick.removeAttribute('open'); }
+  document.querySelectorAll('.js-call').forEach(function(a){
+    a.addEventListener('click', function(e){
+      if (!pick.showModal) return;
+      e.preventDefault(); pick.showModal();
+    });
+  });
+  document.getElementById('pick-close').addEventListener('click', closePick);
+  pick.addEventListener('click', function(e){ if (e.target === pick) closePick(); });
+  pick.querySelectorAll('.pick-btn').forEach(function(a){ a.addEventListener('click', function(){ setTimeout(closePick, 300); }); });
 
   document.getElementById('yr').textContent = new Date().getFullYear();
 })();
