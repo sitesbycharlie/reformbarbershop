@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Arimo:wght@400;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "BarberShop", "name": "Reform Barbershop", "image": "https://reformbarbershop.ie/og-image_1.jpg", "url": "https://reformbarbershop.ie/", "logo": "https://reformbarbershop.ie/icon-512.png", "telephone": "+353877801057", "email": "Reformbarbershop@hotmail.com", "priceRange": "€16 to €24", "sameAs": ["https://www.facebook.com/reformbarbershopdonegaltown/"], "address": {"@type": "PostalAddress", "streetAddress": "SuperValu Shopping Centre, 9 Newpark Road", "addressLocality": "Donegal Town", "addressRegion": "Co. Donegal", "addressCountry": "IE"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "09:30", "closes": "18:30"}], "makesOffer": [{"@type": "Offer", "name": "Gents Haircut", "price": "18.00", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Student Haircut", "price": "17.00", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Kids Haircut", "price": "16.00", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Senior Haircut", "price": "16.00", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Head Shave", "price": "16.00", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Haircut & Beard", "price": "24.00", "priceCurrency": "EUR"}], "@id": "https://reformbarbershop.ie/#barbershop", "description": "Modern local barber in Donegal Town with a traditional twist. Men's haircuts, skin fades, beard trims, kids' and senior cuts.", "hasMap": "https://www.google.com/maps/search/?api=1&query=Reform+Barbershop+SuperValu+Shopping+Centre+Donegal+Town", "areaServed": [{"@type": "Place", "name": "Donegal Town"}, {"@type": "Place", "name": "Mountcharles"}, {"@type": "Place", "name": "Laghey"}, {"@type": "Place", "name": "Ballintra"}, {"@type": "Place", "name": "Lough Eske"}, {"@type": "Place", "name": "Frosses"}, {"@type": "Place", "name": "Inver"}, {"@type": "Place", "name": "Killymard"}, {"@type": "Place", "name": "Barnesmore"}], "knowsAbout": ["Men's haircuts", "Skin fades", "Taper fades", "Beard trims", "Kids' haircuts", "Head shaves"]}
+{"@context": "https://schema.org", "@type": "BarberShop", "name": "Reform Barbershop", "image": "https://reformbarbershop.ie/og-image_1.jpg", "url": "https://reformbarbershop.ie/", "logo": "https://reformbarbershop.ie/icon-512.png", "telephone": "+353877801057", "email": "Reformbarbershop@hotmail.com", "priceRange": "€16 to €24", "sameAs": ["https://www.facebook.com/reformbarbershopdonegaltown/"], "address": {"@type": "PostalAddress", "streetAddress": "SuperValu Shopping Centre, 9 Newpark Road", "addressLocality": "Donegal Town", "addressRegion": "Co. Donegal", "addressCountry": "IE"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday"], "opens": "10:00", "closes": "18:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Thursday", "Friday"], "opens": "09:30", "closes": "19:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "18:00"}], "makesOffer": [{"@type": "Offer", "name": "Gents Haircut", "price": "18.00", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Student Haircut", "price": "17.00", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Kids Haircut", "price": "16.00", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Senior Haircut", "price": "16.00", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Head Shave", "price": "16.00", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Haircut & Beard", "price": "24.00", "priceCurrency": "EUR"}], "@id": "https://reformbarbershop.ie/#barbershop", "description": "Modern local barber in Donegal Town with a traditional twist. Men's haircuts, skin fades, beard trims, kids' and senior cuts.", "hasMap": "https://www.google.com/maps/search/?api=1&query=Reform+Barbershop+SuperValu+Shopping+Centre+Donegal+Town", "areaServed": [{"@type": "Place", "name": "Donegal Town"}, {"@type": "Place", "name": "Mountcharles"}, {"@type": "Place", "name": "Laghey"}, {"@type": "Place", "name": "Ballintra"}, {"@type": "Place", "name": "Lough Eske"}, {"@type": "Place", "name": "Frosses"}, {"@type": "Place", "name": "Inver"}, {"@type": "Place", "name": "Killymard"}, {"@type": "Place", "name": "Barnesmore"}], "knowsAbout": ["Men's haircuts", "Skin fades", "Taper fades", "Beard trims", "Kids' haircuts", "Head shaves"]}
 </script>
 <style>
 :root{
@@ -446,12 +446,12 @@ footer nav a{display:inline-flex;align-items:center;gap:6px}
       <ul class="hours" id="hours" aria-label="Opening hours">
         <li class="hours-head"><span class="label">Hours</span><span class="hstatus js-status" aria-live="polite"><span class="led"></span><span class="main">CHECKING</span></span></li>
         <li class="hours-sub js-status-sub"></li>
-        <li data-day="1"><span class="d">MON</span><span>09:30 – 18:30</span></li>
-        <li data-day="2"><span class="d">TUE</span><span>09:30 – 18:30</span></li>
-        <li data-day="3"><span class="d">WED</span><span>09:30 – 18:30</span></li>
-        <li data-day="4"><span class="d">THU</span><span>09:30 – 18:30</span></li>
-        <li data-day="5"><span class="d">FRI</span><span>09:30 – 18:30</span></li>
-        <li data-day="6"><span class="d">SAT</span><span>09:30 – 18:30</span></li>
+        <li data-day="1"><span class="d">MON</span><span>10:00 – 18:00</span></li>
+        <li data-day="2"><span class="d">TUE</span><span>10:00 – 18:00</span></li>
+        <li data-day="3"><span class="d">WED</span><span>10:00 – 18:00</span></li>
+        <li data-day="4"><span class="d">THU</span><span>09:30 – 19:00</span></li>
+        <li data-day="5"><span class="d">FRI</span><span>09:30 – 19:00</span></li>
+        <li data-day="6"><span class="d">SAT</span><span>09:00 – 18:00</span></li>
         <li data-day="0" class="closed"><span class="d">SUN</span><span>CLOSED</span></li>
       </ul>
     </div>
@@ -475,7 +475,7 @@ footer nav a{display:inline-flex;align-items:center;gap:6px}
       <details class="qa"><summary><span class="qt">How much is a haircut at Reform Barbershop?</span><span class="qi" aria-hidden="true"></span></summary><p>A gents haircut is €18, student haircut €17, kids and senior haircuts €16, a head shave €16, and haircut and beard €24.</p></details>
       <details class="qa"><summary><span class="qt">Do you take walk-ins?</span><span class="qi" aria-hidden="true"></span></summary><p>We work mainly by appointment, but walk-ins are welcome when we can fit you in. The quickest way to book is to call or text 087 780 1057.</p></details>
       <details class="qa"><summary><span class="qt">Where is Reform Barbershop?</span><span class="qi" aria-hidden="true"></span></summary><p>We're inside the SuperValu Shopping Centre on Newpark Road, Donegal Town, Co. Donegal, with parking right outside.</p></details>
-      <details class="qa"><summary><span class="qt">What are your opening hours?</span><span class="qi" aria-hidden="true"></span></summary><p>Monday to Saturday, 9:30am to 6:30pm. We're closed on Sundays.</p></details>
+      <details class="qa"><summary><span class="qt">What are your opening hours?</span><span class="qi" aria-hidden="true"></span></summary><p>Monday to Wednesday 10am to 6pm, Thursday and Friday 9:30am to 7pm, and Saturday 9am to 6pm. We're closed on Sundays.</p></details>
       <details class="qa"><summary><span class="qt">Do you do skin fades and beard trims?</span><span class="qi" aria-hidden="true"></span></summary><p>Yes. Skin fades, tapers, scissor cuts and beard trims, with our haircut and beard combo at €24.</p></details>
       <details class="qa"><summary><span class="qt">Do you cut kids' hair?</span><span class="qi" aria-hidden="true"></span></summary><p>Yes, kids' haircuts are €16. Call or text ahead to book a time that suits.</p></details>
   </div>
@@ -545,22 +545,25 @@ footer nav a{display:inline-flex;align-items:center;gap:6px}
   }, {passive:true});
 
   /* Open / closed, from the visitor's device clock */
-  var OPEN = 9*60+30, CLOSE = 18*60+30, DAYS = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+  /* [open, close] in minutes per day, Sunday first; null = closed */
+  var HRS = [null, [600,1080], [600,1080], [600,1080], [570,1140], [570,1140], [540,1080]];
+  var DAYS = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+  function hhmm(m){ var h = Math.floor(m/60), r = m%60; return (h<10?'0':'') + h + ':' + (r<10?'0':'') + r; }
   function fmtLeft(m){ var h = Math.floor(m/60), r = m%60; return (h ? h+'H ' : '') + r + 'M'; }
-  function nextOpenDay(day){ var d = (day+1)%7; while (d === 0) d = (d+1)%7; return d; }
+  function nextOpenDay(day){ var d = (day+1)%7; while (!HRS[d]) d = (d+1)%7; return d; }
   function updateStatus(){
     var now = new Date(), day = now.getDay(), mins = now.getHours()*60 + now.getMinutes();
-    var openToday = day !== 0, state = 'closed', main = 'CLOSED', sub = '';
-    if (openToday && mins >= OPEN && mins < CLOSE){
-      var left = CLOSE - mins;
+    var t = HRS[day], state = 'closed', main = 'CLOSED', sub = '';
+    if (t && mins >= t[0] && mins < t[1]){
+      var left = t[1] - mins;
       state = left <= 30 ? 'soon' : 'open';
       main = left <= 30 ? 'CLOSING SOON' : 'OPEN NOW';
-      sub = 'CLOSES 18:30 · ' + fmtLeft(left) + ' LEFT';
-    } else if (openToday && mins < OPEN){
-      sub = 'OPENS 09:30 · IN ' + fmtLeft(OPEN - mins);
+      sub = 'CLOSES ' + hhmm(t[1]) + ' · ' + fmtLeft(left) + ' LEFT';
+    } else if (t && mins < t[0]){
+      sub = 'OPENS ' + hhmm(t[0]) + ' · IN ' + fmtLeft(t[0] - mins);
     } else {
       var n = nextOpenDay(day);
-      sub = 'OPENS ' + (n === (day+1)%7 ? 'TOMORROW' : DAYS[n]) + ' 09:30';
+      sub = 'OPENS ' + (n === (day+1)%7 ? 'TOMORROW' : DAYS[n]) + ' ' + hhmm(HRS[n][0]);
     }
     document.querySelectorAll('.js-status').forEach(function(el){
       el.classList.toggle('is-open', state === 'open');
